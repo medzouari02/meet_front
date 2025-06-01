@@ -19,8 +19,14 @@ export default function LoginPage() {
       const res = await login(form);
       const token = res.data.token;
       const user_id = res.data.id;
+      const role = res.data.role;
+      const name =res.data.name;
+      console.log(role)
       localStorage.setItem('token', token);
       localStorage.setItem('user_id', user_id);
+      localStorage.setItem('role', role);
+      localStorage.setItem('name', name);
+      
       alert('✅ Connexion réussie');
     } catch (err) {
       alert('❌ Échec de la connexion');
